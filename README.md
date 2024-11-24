@@ -1,4 +1,4 @@
-#FOR EDUCATIONAL PURPOSES ONLY
+# FOR EDUCATIONAL PURPOSES ONLY
 
 Obejctive of this :
 - using gemini's api to send requests (using their module)
