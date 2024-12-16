@@ -11,7 +11,7 @@
 ## Usage
 
 1. **Get an API Key:**
-    *   Go to [https://ai.google.dev/aistudio](https://ai.google.dev/aistudio) and get an API key.
+    *   Go to [https://ai.google.dev/aistudio](https://ai.google.dev/aistudio) and get an API key (keep it later for the environment variable).
     *   (Optional) Get a second API key with a second Google account to enable the double requests method for more uses (100 requests daily).
 
 2. **Configure `config.yaml`:**
