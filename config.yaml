@@ -5,7 +5,7 @@ model_name: "gemini-2.0-flash-exp"
 
 #base prompt you need to configure depending on subject, change it and try for best results, when you are satisfied keep it
 #if you want code only, try this : "only give me the code and nothing else, do not add superfleous data, don't use comments in the code, and code it in an easy way"
-base_prompt: "do the calculation or analyze the graph and respond to the question, don't forget to normalize if it's needed ! If you need to go from bytes to kilobytes (or any conversion) divide by 1000 and not 1024"
+base_prompt: "do the calculation or analyze the graph and respond to the question"
 
 #to enable short response (recommended, if disabled you will get the whole output as a prompt)
 short_response: True
