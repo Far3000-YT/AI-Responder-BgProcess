@@ -1,9 +1,54 @@
-# FOR EDUCATIONAL PURPOSES ONLY
+# Online Quizz Responder (not detectable in theory) using AI API (Gemini experimental models)
 
-Obejctive of this :
-- using gemini's api to send requests (using their module)
-- learning how to insert api key into system (i use the variable here only, the key is stored in the system variable keys)
-- adding a system that will make the script work only for specified users (hwid login)
-- learning how to make a script fully undetectable on a pc, and can be used only by the user and configured once
-- learning how to make a python app transformed into .exe (or anything else) + make it use a rly low amount of ram / cpu
-- learning how to make the program encryptable (this project will be private probably or will have limited access soon)
+## FOR EDUCATIONAL PURPOSES ONLY
+
+## Limits
+
+*   **50 requests a day** (so 25 usages daily for each API key with the default settings)
+*   A website could in theory detect what commands you are doing (if they record all the inputs).
+*   You need to paste somewhere to get the response, so you need to find where.
+
+## Usage
+
+1. **Get an API Key:**
+    *   Go to [https://ai.google.dev/aistudio](https://ai.google.dev/aistudio) and get an API key.
+    *   (Optional) Get a second API key with a second Google account to enable the double requests method for more uses (100 requests daily).
+
+2. **Configure `config.yaml`:**
+    *   Open the `config.yaml` file.
+    *   **`model_name`:** Set this to the latest experimental model on Gemini for best results. You can find the latest models here: [https://ai.google.dev/gemini-api/docs/models/experimental-models](https://ai.google.dev/gemini-api/docs/models/experimental-models)
+    *   **`base_prompt`:** This is crucial! Customize this prompt based on the subject of your quizzes. Experiment and refine it to get the best results. If you only need code you can configure it to.
+    *   **`short_response`:**  (Recommended: `True`) If enabled, the script will attempt to extract only the essential answer from Gemini's output. If disabled, you will receive the entire output as a prompt.
+    *   **`max_output_tokens`:** Do not change unless you encounter an error message.
+    *   **`top_k`:** Refer to the Gemini documentation for details. The maximum value for Gemini 2.0 models is 40.
+    *   **`double_requests`:** Set to `True` to use two API keys, alternating between them. This allows for 100 requests per day and 4 per minute. If enabled, you **must** set the environment variables `API_KEY_GEMINI` and `API_KEY_GEMINI2`. They reset at 9:00 AM France timezone
+    *   **`screenshot_cmd`:** Define the keyboard shortcut for taking a screenshot (e.g., `shift+alt+ç`). You will then select two points on the screen to define the screenshot area.
+    *   **`point_select`:** Define the key used to select the two points for the screenshot (e.g., `ctrl`).
+    *   **`ctrl_c`:** If `True` (recommended), pressing Ctrl+C will instantly send the currently copied text to Gemini and provide a response.
+    *   **`promptf`:** **Do not modify this unless you understand its function.** It's crucial for the short response extraction.
+
+3. **Set Environment Variables:**
+    *   **`API_KEY_GEMINI`:** Set this environment variable to your first Gemini API key.
+    *   **(Optional) `API_KEY_GEMINI2`:** If you enabled `double_requests`, set this environment variable to your second Gemini API key.
+
+4. **Install Dependencies:**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+    You need to create a file `requirements.txt` with the following content:
+
+    ```
+    pyautogui
+    pyperclip
+    keyboard
+    pycaw
+    Pillow
+    google-generativeai
+    comtypes
+    pyyaml
+    ```
+5. **Run the script:**
+   ```bash
+   python meow-meow.py
