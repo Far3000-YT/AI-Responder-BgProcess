@@ -57,4 +57,4 @@
 
 6. **How to use:**
    *   When the script is running in the background, put the command you set in `config.yaml` or just use the `ctrl+c` command when you need it. Wait a bit and you will be able to paste the response correctly. To know when the AI is loading, you can check the sound on your PC taskbar (it will blink from mute to unmute at sound level 0)
-   *   I will give the ability soon in the `config.yaml` file to remove the sound blink functionality in case you don't need it / it annoys you (if you hear music etc)
+   *   I will give the ability soon in the `config.yaml` file to remove the sound blink functionality in case you don't need it / if it annoys you (if you hear music etc)
