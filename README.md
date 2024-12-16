@@ -1,7 +1,5 @@
 # Online Quizz Responder (not detectable in theory) using AI API (Gemini experimental models)
 
-## FOR EDUCATIONAL PURPOSES ONLY
-
 ## Limits
 
 *   **50 requests a day** (so 25 usages daily for each API key with the default settings)
