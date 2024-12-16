@@ -1,4 +1,4 @@
-# Online Quizz Responder (not detectable in theory) using AI API (Gemini experimental models)
+# Online Quizz Responder using AI API (Gemini experimental model)
 
 ## Limits
 
