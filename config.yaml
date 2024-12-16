@@ -1,0 +1,51 @@
+#Do not change the variable names or it will break the system ! You can only change the values and strings if needed
+
+#configure to latest experimental model on gemini for best results (https://ai.google.dev/gemini-api/docs/models/experimental-models)
+model_name: "gemini-2.0-flash-exp"
+
+#base prompt you need to configure depending on subject, change it and try for best results, when you are satisfied keep it
+#if you want code only, try this : "only give me the code and nothing else, do not add superfleous data, don't use comments in the code, and code it in an easy way"
+base_prompt: "do the calculation or analyze the graph and respond to the question, don't forget to normalize if it's needed ! If you need to go from bytes to kilobytes (or any conversion) divide by 1000 and not 1024"
+
+#to enable short response (recommended, if disabled you will get the whole output as a prompt)
+short_response: True
+
+#max output tokens (dont change unless u have error in program that says max output token has to be lower)
+#top k go search on internet, max of 40 for 2.0 gemini
+max_output_tokens: 8192
+top_k: 40
+
+#True will make this use 2 api keys and swap between them
+#Then it allows you to use the tool more often
+#100 requests a day with 2 api keys, and 4 per minute, reset at 9:00 AM France timezone
+#Enter in variable environments "API_KEY_GEMINI" AND "API_KEY_GEMINI2" if you enable this
+double_requests: False
+
+#Define the command you want for a screenshot (then u select 2 points with the command of ur choice)
+screenshot_cmd: 'shift+alt+ç'
+point_select: 'ctrl'
+
+#Ctrl+c command will instantly ask gemini the question and give you the response (better if on)
+ctrl_c: True
+
+#DO NOT TOUCH THIS IF YOU DON'T KNOW WHAT YOU ARE DOING, IT CAN BREAK THE WHOLE SHORT RESPONSE SYSTEM
+promptf: |
+    Here is a text , give me only the response you can get from it with no superfleous data : 
+
+    Example 1 : 
+
+    Text Input : Let's evaluate it over the interval [-2, 5].
+    We can use the definite integral formula:
+    ∫[a,b] f(x) dx = F(b) - F(a)
+    where F(x) is the antiderivative of f(x).
+    In our case, f(x) = x, so F(x) = (1/2)x^2 + C.
+    Therefore, the definite integral of x over the interval [-2, 5] is:
+    ∫[-2,5] x dx = F(5) - F(-2)
+    = (1/2)(5)^2 - (1/2)(-2)^2
+    = (1/2)(25) - (1/2)(4)
+    = 12.5 - 2
+    = 10.5
+    So the answer is 10.5.
+
+    Output : 10.5
+#DO NOT TOUCH THIS IF YOU DON'T KNOW WHAT YOU ARE DOING, IT CAN BREAK THE WHOLE SHORT RESPONSE SYSTEM
