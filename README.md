@@ -17,13 +17,13 @@
 2. **Configure `config.yaml`:**
     *   Open the `config.yaml` file.
     *   **`model_name`:** Set this to the latest experimental model on Gemini for best results. You can find the latest models here: [https://ai.google.dev/gemini-api/docs/models/experimental-models](https://ai.google.dev/gemini-api/docs/models/experimental-models)
-    *   **`base_prompt`:** This is crucial! Customize this prompt based on the subject of your quizzes. Experiment and refine it to get the best results. If you only need code you can configure it to.
+    *   **`base_prompt`:** This is crucial! Customize this prompt based on the subject of your quizzes. Experiment and refine it to get the best results.
     *   **`short_response`:**  (Recommended: `True`) If enabled, the script will attempt to extract only the essential answer from Gemini's output. If disabled, you will receive the entire output as a prompt.
     *   **`max_output_tokens`:** Do not change unless you encounter an error message.
     *   **`top_k`:** Refer to the Gemini documentation for details. The maximum value for Gemini 2.0 models is 40.
-    *   **`double_requests`:** Set to `True` to use two API keys, alternating between them. This allows for 100 requests per day and 4 per minute. If enabled, you **must** set the environment variables `API_KEY_GEMINI` and `API_KEY_GEMINI2`. They reset at 9:00 AM France timezone
-    *   **`screenshot_cmd`:** Define the keyboard shortcut for taking a screenshot (e.g., `shift+alt+ç`). You will then select two points on the screen to define the screenshot area.
-    *   **`point_select`:** Define the key used to select the two points for the screenshot (e.g., `ctrl`).
+    *   **`double_requests`:** Set to `True` to use two API keys, alternating between them. This allows for 100 requests per day and 4 per minute. If enabled, you **must** set the environment variables `API_KEY_GEMINI` and `API_KEY_GEMINI2`. They reset at 9:00 AM France timezone.
+    *   **`screenshot_cmd`:** Define the keyboard shortcut for taking a screenshot (here it is `shift+alt+ç`). You will then select two points on the screen to define the screenshot area.
+    *   **`point_select`:** Define the key used to select the two points for the screenshot (e.g., `ctrl`) (you need to press `ctrl` once for the first point, release it and press it another time at the second point of the screenshot).
     *   **`ctrl_c`:** If `True` (recommended), pressing Ctrl+C will instantly send the currently copied text to Gemini and provide a response.
     *   **`promptf`:** **Do not modify this unless you understand its function.** It's crucial for the short response extraction.
 
@@ -49,6 +49,12 @@
     comtypes
     pyyaml
     ```
+   
 5. **Run the script:**
    ```bash
-   python meow-meow.py
+   python ai-back-responder.py
+   ```
+
+6. **How to use:**
+   *   When the script is running in the background, put the command you set in `config.yaml` or just use the `ctrl+c` command when you need it. Wait a bit and you will be able to paste the response correctly. To know when the AI is loading, you can check the sound on your PC taskbar (it will blink from mute to unmute at sound level 0)
+   *   I will give the ability soon in the `config.yaml` file to remove the sound blink functionality in case you don't need it / it annoys you (if you hear music etc)
