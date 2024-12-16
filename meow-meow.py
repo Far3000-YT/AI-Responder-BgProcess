@@ -43,14 +43,12 @@ loading = False
 
 def blink():
     global loading
-    comtypes.CoInitialize()  #unbug exe
     set_volume(0)
     while loading:
         mute_sound()
         time.sleep(1.5)
         unmute_sound()
         time.sleep(1.5)
-    comtypes.CoUninitialize() #unbug again for exe only
 
 genai.configure(api_key = os.environ['API_KEY_GEMINI'])
 
