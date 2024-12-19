@@ -50,7 +50,7 @@
    
 5. **Run the script:**
    ```bash
-   python ai-back-responder.py
+   python bg-process-main.py
    ```
 
 6. **How to use:**
