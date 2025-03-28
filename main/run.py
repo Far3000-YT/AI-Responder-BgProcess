@@ -1,7 +1,4 @@
-import pyautogui, time, pyperclip, keyboard, threading, os, yaml, comtypes
-from ctypes import POINTER, cast
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+import pyautogui, time, pyperclip, keyboard, threading, os, yaml
 from PIL import Image
 import google.generativeai as genai
 
@@ -20,35 +17,7 @@ pf = data["promptf"]
 mat = data["max_output_tokens"]
 tk = data["top_k"]
 
-#Def sys sounds (0, 1, mute)
-def set_volume(level):
-    devices = AudioUtilities.GetSpeakers()
-    interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-    volume = cast(interface, POINTER(IAudioEndpointVolume))
-    volume.SetMasterVolumeLevelScalar(level, None)
-
-def mute_sound():
-    devices = AudioUtilities.GetSpeakers()
-    interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-    volume = cast(interface, POINTER(IAudioEndpointVolume))
-    volume.SetMute(1, None)
-
-def unmute_sound():
-    devices = AudioUtilities.GetSpeakers()
-    interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-    volume = cast(interface, POINTER(IAudioEndpointVolume))
-    volume.SetMute(0, None)
-
 loading = False
-
-def blink():
-    global loading
-    set_volume(0)
-    while loading:
-        mute_sound()
-        time.sleep(1.5)
-        unmute_sound()
-        time.sleep(1.5)
 
 genai.configure(api_key = os.environ['API_KEY_GEMINI'])
 
