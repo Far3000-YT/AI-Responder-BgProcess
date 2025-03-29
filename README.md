@@ -1,6 +1,6 @@
 # Responder using AI APIs (works on anything, quizzes, normal questions... etc)
-# AI used : Gemini 2.5 Pro Experimental (smartest model as of now)
 
+ai used : Gemini 2.5 Pro Experimental (smartest model as of now)
 project should not work for now unless u fix it manually
 
 will redo the README.md completely #inwork
