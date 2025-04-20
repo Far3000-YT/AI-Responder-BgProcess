@@ -6,6 +6,7 @@ This project provides a background tool that uses the Google Gemini API to respo
 
 Make sure you have the following structure, especially the `scripts` directory and its contents:
 
+``
 AI-Responder-BgProcess/
 ├── .env
 ├── .gitignore
@@ -31,6 +32,7 @@ AI-Responder-BgProcess/
         ├── install.sh
         ├── configure.sh
         └── run.sh
+``
 
 ## Prerequisites
 
@@ -54,6 +56,7 @@ This step creates an isolated environment for the project's Python packages.
 
 *   **Windows:** Navigate to the `scripts/windows` directory in your file explorer and double-click `install.bat`. Alternatively, open Command Prompt, `cd` into `scripts/windows`, and run `install.bat`. The script (`scripts/windows/install.bat`) contains:
 
+    ``
     @echo off
     echo Creating Python virtual environment (venv)...
     python -m venv venv
@@ -74,9 +77,11 @@ This step creates an isolated environment for the project's Python packages.
     echo Installation complete!
     echo You can now run configure.bat to set up your API keys and settings.
     pause
+    ``
 
 *   **Linux/macOS:** Open your terminal, navigate to the `scripts/linux-macos` directory (`cd scripts/linux-macos`), make the script executable (`chmod +x install.sh`), and run it (`./install.sh`). The script (`scripts/linux-macos/install.sh`) contains:
 
+    ``
     #!/bin/bash
 
     echo "Creating Python virtual environment (venv)..."
@@ -95,6 +100,7 @@ This step creates an isolated environment for the project's Python packages.
 
     echo "Installation complete!"
     echo "You can now run ./configure.sh to set up your API keys and settings."
+    ``
 
 Wait for the installation to complete.
 
@@ -106,6 +112,7 @@ You need to tell the script your Google Gemini API key(s) and adjust settings.
 *   **Run Configure Script:**
     *   **Windows:** Double-click `configure.bat` in the `scripts/windows` directory. Script content (`scripts/windows/configure.bat`):
 
+        ``
         @echo off
         echo Opening .env file (for API Keys)...
         start "" ..\..\.env
@@ -117,9 +124,11 @@ You need to tell the script your Google Gemini API key(s) and adjust settings.
         echo Please edit these files and save them.
         echo Press any key when you are done...
         pause
+        ``
 
     *   **Linux/macOS:** In the terminal, from the `scripts/linux-macos` directory, make the script executable (`chmod +x configure.sh`) and run it (`./configure.sh`). Script content (`scripts/linux-macos/configure.sh`):
 
+        ``
         #!/bin/bash
 
         echo "Attempting to open .env and config.yaml in your default editor..."
@@ -138,6 +147,7 @@ You need to tell the script your Google Gemini API key(s) and adjust settings.
 
         echo "Please edit these files and save them."
         read -p "Press Enter when you are done..."
+        ``
 
 *   **Edit Files:** The script will attempt to open two files:
     *   `.env`: Add your primary API key like this: `GEMINI_KEY=YOUR_API_KEY_HERE`. If using `double_requests`, also add `API_KEY_GEMINI2=YOUR_SECOND_KEY_HERE`.
@@ -150,6 +160,7 @@ This script starts both the main AI responder and the status indicator.
 
 *   **Windows:** Double-click `run.bat` in the `scripts/windows` directory. Two new command prompt windows will open, one for the main script and one for the indicator. Keep these windows open while you use the tool. Script content (`scripts/windows/run.bat`):
 
+    ``
     @echo off
     echo Starting AI Responder (run.py)...
     start "AI Responder" cmd /c ".\venv\Scripts\activate.bat && python ..\..\run.py"
@@ -161,9 +172,11 @@ This script starts both the main AI responder and the status indicator.
 
     echo Both scripts started in separate windows.
     echo To stop them, close their respective command prompt windows.
+    ``
 
 *   **Linux/macOS:** In the terminal, from the `scripts/linux-macos` directory, make the script executable (`chmod +x run.sh`) and run it (`./run.sh`). The scripts will start in the background. The terminal will show you the Process IDs (PIDs) needed to stop them later and the log files (`run.log`, `indicator.log`). Script content (`scripts/linux-macos/run.sh`):
 
+    ``
     #!/bin/bash
 
     # Activate virtual environment
@@ -197,6 +210,7 @@ This script starts both the main AI responder and the status indicator.
 
     # Deactivate venv (optional, script ends anyway)
     # deactivate
+    ``
 
 ## Usage
 
