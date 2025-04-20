@@ -22,7 +22,6 @@ AI-Responder-BgProcess/
 │   ├── c_config.py
 │   ├── env.py
 │   └── status.py
-├── __pycache__/
 └── scripts/
     ├── windows/
     │   ├── install.bat
