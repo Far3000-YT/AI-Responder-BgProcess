@@ -1,0 +1,7 @@
+pyautogui
+pyperclip
+keyboard
+PyYAML
+python-dotenv
+google-generativeai
+Pillow

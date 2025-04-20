@@ -1,1 +1,4 @@
-.env
+temp_screenshot.png
+.ai_status
+__pycache__/
+venv/
